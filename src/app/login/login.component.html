@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title>Inicio de Sesión</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()"> 
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="user" matInput placeholder="User">
+                <mat-error *ngIf="loginForm.invalid">required</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="password" matInput placeholder="Password">
+                <mat-error *ngIf="loginForm.invalid">required</mat-error>
+            </mat-form-field>
+        </p>
+        <div>
+            <button type="submit" [disabled]="!loginForm.valid" mat-raised-button>Iniciar Sesión</button>
+        </div>
+    </form>
+    </mat-card-content>
+</mat-card>

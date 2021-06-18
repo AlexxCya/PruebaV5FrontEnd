@@ -1,0 +1,11 @@
+
+ <mat-drawer-container autosize style="position: absolute;right: 0px;left: 0px;bottom: 0px;top: 0px;">
+  <mat-drawer #drawer mode="side">
+    <a [routerLink]="['/home']">Home</a><br>
+    <a [routerLink]="['/country']">Countries</a>
+  </mat-drawer>
+  <div>
+    <button (click)="drawer.toggle()" mat-raised-button color="basic">Menu</button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

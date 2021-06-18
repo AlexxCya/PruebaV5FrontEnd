@@ -1,0 +1,40 @@
+<h mat-dialog-title>{{ country !=null ? 'Edit Country' : 'New Country' }}</h>
+<div mat-dialog-content>
+    <form [formGroup]="countryForm" (ngSubmit)="country!=null ? editC() : addC()"> 
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="name" matInput placeholder="Name">
+                <mat-error *ngIf="countryForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="alpha2Code" matInput placeholder="alpha2Code">
+                <mat-error *ngIf="countryForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+         <p>
+            <mat-form-field>
+                <input type="text" formControlName="alpha3Code" matInput placeholder="alpha3Code">
+                <mat-error *ngIf="countryForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="code" matInput placeholder="Code">
+                <mat-error *ngIf="countryForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="iso" matInput placeholder="ISO">
+                <mat-error *ngIf="countryForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p> 
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary"  [disabled]="!countryForm.valid"
+    (click)="country!=null ? editC() : addC()">Save</button>
+</div>

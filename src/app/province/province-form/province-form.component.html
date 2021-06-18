@@ -1,0 +1,22 @@
+<h mat-dialog-title>{{ province.id > 0 ? 'Edit Province' : 'New Province' }}</h>
+<div mat-dialog-content>
+    <form [formGroup]="provinceForm" (ngSubmit)="province!=null ? edit() : add()"> 
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="name" matInput placeholder="Name">
+                <mat-error *ngIf="provinceForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="abbrevation" matInput placeholder="Abbrevation">
+                <mat-error *ngIf="provinceForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary"  [disabled]="!provinceForm.valid"
+    (click)="province.id > 0 ? edit() : add()">Save</button>
+</div>
